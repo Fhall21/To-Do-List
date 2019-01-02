@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+	{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="{% static 'js/to_do.js' %}"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/todo.css' %}">
+</head>
+<body ng-app="toDo" ng-controller="toDoController">
+	<div class="container", id="main_container">
+	<h1>To Do List</h1>
+	<div id="seconday_container">
+	<form ng-submit='todoAdd()'>
+		<input id="todoInput" type="text" ng-model='todoInput' placeholder="What's new?">
+		{# ng-click calles the function given #}
+		<button type="submit" ng-click="saveData()">Enter</button>
+	</form>
+	<br>
+<!--
+<div class="center">
+  <label class="label">
+    <input  class="label__checkbox" type="checkbox" />
+    <span class="label__text">
+      <span class="label__check">
+        <i class="fa fa-check icon"></i>
+      </span>
+    </span>
+  </label>
+</div>
+--->
+<br>
+	<div ng-repeat='todo in todoList'> 
+		{# ng-repeat is like a for loop #}
+		{# todo is a disctionary and todoText is the key #}
+		<input class="task" type='checkbox' ng-model='todo.done'>
+		<span class="task" ng-bind='todo.todoText'></span>
+
+	</div>
+	
+<div style="
+	display: inline-grid;
+    width: 62.5vw;
+}" class="container">
+<br>
+	<button class="done" ng-click='remove()'>Done</button>
+</div>
+</div>
+</div>
+
+</body>
+</html>
