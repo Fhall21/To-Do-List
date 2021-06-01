@@ -25,6 +25,6 @@ rcssmin==1.0.6
 rjsmin==1.0.12
 s3transfer==0.1.13
 six==1.12.0
-urllib3==1.24.1
+urllib3==1.26.5
 win32core==221.36
 win32gui==221.6
